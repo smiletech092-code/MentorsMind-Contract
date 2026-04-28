@@ -15,6 +15,7 @@ import auditLogRoutes from "./routes/audit-log.routes";
 import { startNetworkMonitor, stopNetworkMonitor, getNetworkStatus } from "./services/network-monitor.service";
 import { stopStellarMonitor } from "./services/stellar-monitor.service";
 import { startRateRefresh, stopRateRefresh } from "./services/assetExchange.service";
+import adminConfigRoutes from "./routes/admin-config.routes";
 
 // Load environment variables
 dotenv.config();
@@ -39,6 +40,7 @@ app.use("/api/events", eventIndexerRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/mentor-wallet", mentorWalletRoutes);
 app.use("/api/audit-logs", auditLogRoutes);
+app.use("/api/admin/config", adminConfigRoutes);
 
 // Health check endpoint
 app.get("/health", (req, res) => {
